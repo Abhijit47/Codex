@@ -85,7 +85,7 @@ const handleSubmit = async (e) => {
   loader(messageDiv);
 
   // fetch data from server -> bot's response
-  const response = await fetch("http://localhost:5501", {
+  const response = await fetch("https://codex-9f5q.onrender.com", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -99,11 +99,10 @@ const handleSubmit = async (e) => {
 
   if (response.ok) {
     const data = await response.json();
-    
+
     const parsedData = data.bot.trim();
 
     typeText(messageDiv, parsedData);
-
   } else {
     const error = await response.text();
 
